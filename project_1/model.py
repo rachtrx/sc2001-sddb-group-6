@@ -2,16 +2,18 @@ import time
 
 class Model:
 
-    def __init__(self, array, S=None):
+    def __init__(self, array, S):
         self.S = S   
         self.array = array
 
     def train(self):
         self.execution_time = None
         self.key_cmp = 0
-        if self.S:
+        if self.S == 1:
+            print("Merge Sort")
             merge_func = self.merge_insertion_sort
         else:
+            print("Merge Insertion Sort")
             merge_func = self.merge_sort
         start_time = time.perf_counter()
         merge_func(0, len(self.array)-1)
